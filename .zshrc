@@ -47,7 +47,14 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(sudo viper-env zsh-syntax-highlighting)
+plugins=(
+  sudo 
+  viper-env 
+  zsh-syntax-highlighting 
+  web-search
+  copyfile
+  copypath
+)
 
 source $ZSH/oh-my-zsh.sh
 
