@@ -82,6 +82,9 @@ alias vfull="mkv && vrun && pupg && pir"
 alias pmmg="python manage.py makemigrations"
 alias pmm="python manage.py migrate"
 
+# Debian
+alias upd="sudo apt-get update & sudo apt-get upgrade"
+
 # shell
 alias cls="clear"
 alias upd="sudo apt-get update & sudo apt-get upgrade"
