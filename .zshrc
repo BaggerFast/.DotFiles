@@ -48,13 +48,12 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
-  sudo
-  viper-env
-  systemd
-  zsh-syntax-highlighting
-  web-search
-  copyfile
-  copypath
+    sudo
+    venv-auto-zsh
+    systemd
+    zsh-syntax-highlighting
+    copyfile
+    copypath
 )
 
 source $ZSH/oh-my-zsh.sh
