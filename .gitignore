@@ -1,4 +1,13 @@
-*
+/*
+
+
+!/.config/
+/.config/*
+
+!.config/zsh/
+/.config/zsh/private.zsh
+
 !.gitignore
-!.zshrc
 !.tmux.conf
+!.zshrc
+
