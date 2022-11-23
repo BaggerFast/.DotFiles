@@ -7,15 +7,15 @@ fi
 
 # global vars
 export ZSH="$HOME/.oh-my-zsh"
-export CONFIG="$HOME/.config/zsh"
+export ZSH_CONFIG="$HOME/.config/zsh"
 
 # local vars
-ANTIGEN="$CONFIG/antigen.zsh"
+ANTIGEN="$ZSH_CONFIG/antigen.zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-HISTFILE="$CONFIG/.zsh_history"
+HISTFILE="$ZSH_CONFIG/.zsh_history"
 EDITOR="nvim"
 
-touch "$CONFIG/private.zsh" # for private configuration
+touch "$ZSH_CONFIG/private.zsh" # for private configuration
 
 autoload add-zsh-hook
 
@@ -28,10 +28,12 @@ if ! test -f "$ANTIGEN"; then
     echo "Success"
 fi
 
+source "$ANTIGEN"
+
 # opts
 setopt hist_ignore_dups # ignore duplicates in historу
 
-# antigen (https://github.com/unixorn/awesome-zsh-plugins)
+#antigen (https://github.com/unixorn/awesome-zsh-plugins)
 antigen use oh-my-zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -43,8 +45,8 @@ antigen apply
 
 # sources
 source "$ZSH/oh-my-zsh.sh"
-source "$CONFIG/aliases.zsh"
-source "$CONFIG/private.zsh"
+source "$ZSH_CONFIG/aliases/main.zsh"
+source "$ZSH_CONFIG/private.zsh"
 source "$ANTIGEN"
 
 prompt_context() {}

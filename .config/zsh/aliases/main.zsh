@@ -22,6 +22,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux"* ]]; then
     LSB_DISTRIBUTOR=$(lsb_release -i -s)
     if [[ "$LSB_DISTRIBUTOR" == "Debian" ]]; then
-        source "$ALIASES/aliases/debian.zsh"
+        source "$ALIASES/debian.zsh"
     fi
 fi
