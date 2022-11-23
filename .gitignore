@@ -5,7 +5,7 @@
 !/.config/zsh/
 /.config/zsh/*
 
-!/.config/zsh/nvim/
+!/.config/nvim/
 
 !.gitignore
 !.tmux.conf
