@@ -1,11 +1,11 @@
 /*
-
-
 !/.config/
 /.config/*
 
-!.config/zsh/
-/.config/zsh/private.zsh
+!/.config/zsh/
+/.config/zsh/*
+
+!/.config/zsh/nvim/
 
 !.gitignore
 !.tmux.conf
