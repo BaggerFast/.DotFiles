@@ -14,6 +14,9 @@ alias cls="clear"
 alias vi="nvim"
 alias ls="exa --icons"
 
+# utils
+alias dock="docker"
+alias g="git"
 
 ALIASES="$ZSH_CONFIG/aliases"
 

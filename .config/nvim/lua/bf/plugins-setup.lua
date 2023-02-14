@@ -71,6 +71,15 @@ return packer.startup(function(use)
     -- git integration
     use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+    -- lsp servers
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    
+    use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+    use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+    
+    use("neovim/nvim-lspconfig")
+
     if packer_bootstrap then
         require("packer").sync()
     end
