@@ -5,23 +5,32 @@ fi
 # install:
 # sudo apt install zsh & sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+
 # global vars
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CONFIG="$HOME/.config/zsh"
+export ZSH_CACHE="$HOME/.cache/zsh"
 
 # local vars
 ANTIGEN="$ZSH_CONFIG/antigen.zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-HISTFILE="$ZSH_CONFIG/.zsh_history"
+HISTFILE="$ZSH_CACHE/.zsh_history"
 EDITOR="nvim"
 
-touch "$ZSH_CONFIG/private.zsh" # for private configuration
+
+if [ ! -d "$HOME/.cache/zsh" ]; then
+    mkdir -p $HOME/.cache/zsh
+fi
+export ZSH_COMPDUMP="$ZSH_CACHE/zcompdump-$HOST-$ZSH_VERSION"
+
+if [ ! -f "$ZSH_CONFIG/private.zsh" ]; then
+    touch $ZSH_CONFIG/private.zsh
+fi
 
 autoload add-zsh-hook
 
-zstyle ':omz:update' mode auto # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically
 
-# install antigen
 if ! test -f "$ANTIGEN"; then
     echo "Antigen downoload"
     curl -L git.io/antigen > "$ANTIGEN"
@@ -30,7 +39,6 @@ fi
 
 source "$ANTIGEN"
 
-# opts
 setopt hist_ignore_dups # ignore duplicates in historу
 
 #antigen (https://github.com/unixorn/awesome-zsh-plugins)
@@ -47,7 +55,6 @@ antigen apply
 source "$ZSH/oh-my-zsh.sh"
 source "$ZSH_CONFIG/aliases/main.zsh"
 source "$ZSH_CONFIG/private.zsh"
-source "$ANTIGEN"
 
 prompt_context() {}
 
