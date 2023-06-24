@@ -5,9 +5,8 @@ alias vfull="mkv && vrun && pupg && pir"
 alias pir="pip install -r requirements.txt"
 alias pupg="python3 -m pip install --upgrade pip"
 
-# python django
-alias pmmg="python manage.py makemigrations"
-alias pmm="python manage.py migrate"
+# js
+alias js="pnpm"
 
 # shell
 alias cls="clear"
