@@ -11,7 +11,7 @@ alias js="pnpm"
 # shell
 alias cls="clear"
 alias vi="nvim"
-alias ls="exa --icons"
+alias ls="exa --icons -s type"
 
 # utils
 alias dock="docker"

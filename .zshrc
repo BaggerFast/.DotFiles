@@ -1,19 +1,11 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# install:
 # sudo apt install zsh & sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
-# global vars
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CONFIG="$HOME/.config/zsh"
 export ZSH_CACHE="$HOME/.cache/zsh"
 
 # local vars
 ANTIGEN="$ZSH_CONFIG/antigen.zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
 HISTFILE="$ZSH_CACHE/.zsh_history"
 EDITOR="nvim"
 
@@ -29,7 +21,7 @@ fi
 
 autoload add-zsh-hook
 
-zstyle ':omz:update' mode auto # update automatically
+zstyle ':omz:update' mode auto
 
 if ! test -f "$ANTIGEN"; then
     echo "Antigen downoload"
@@ -39,7 +31,15 @@ fi
 
 source "$ANTIGEN"
 
-setopt hist_ignore_dups # ignore duplicates in historу
+if ! command -v starship &>/dev/null; then
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+fi
+
+eval "$(starship init zsh)"
+
+export STARSHIP_CONFIG="$ZSH_CONFIG/starship.toml"
+
+setopt hist_ignore_dups
 
 #antigen (https://github.com/unixorn/awesome-zsh-plugins)
 antigen use oh-my-zsh
@@ -57,6 +57,3 @@ source "$ZSH_CONFIG/aliases/main.zsh"
 source "$ZSH_CONFIG/private.zsh"
 
 prompt_context() {}
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

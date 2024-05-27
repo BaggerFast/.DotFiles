@@ -19,10 +19,6 @@ mason.setup()
 mason_lspconfig.setup({
   -- list of servers for mason to install
   ensure_installed = {
-    "html",
-    "cssls",
-    "lua_ls",
-    "pyright",
   },
   automatic_installation = true,
 })
