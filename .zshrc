@@ -9,6 +9,10 @@ ANTIGEN="$ZSH_CONFIG/antigen.zsh"
 HISTFILE="$ZSH_CACHE/.zsh_history"
 EDITOR="nvim"
 
+export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/azul-17.0.13/Contents/Home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if [ ! -d "$HOME/.cache/zsh" ]; then
     mkdir -p $HOME/.cache/zsh
