@@ -1,18 +1,13 @@
 # sudo apt install zsh & sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CONFIG="$HOME/.config/zsh"
 export ZSH_CACHE="$HOME/.cache/zsh"
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # local vars
 ANTIGEN="$ZSH_CONFIG/antigen.zsh"
 HISTFILE="$ZSH_CACHE/.zsh_history"
 EDITOR="nvim"
-
-export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/azul-17.0.13/Contents/Home
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if [ ! -d "$HOME/.cache/zsh" ]; then
     mkdir -p $HOME/.cache/zsh
@@ -61,3 +56,10 @@ source "$ZSH_CONFIG/aliases/main.zsh"
 source "$ZSH_CONFIG/private.zsh"
 
 prompt_context() {}
+
+# bun completions
+[ -s "/Users/baggerfast/.bun/_bun" ] && source "/Users/baggerfast/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
